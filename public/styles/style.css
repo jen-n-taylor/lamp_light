@@ -6,6 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
 html {
   line-height: 1.15;
   /* 1 */
@@ -388,3 +389,31 @@ template {
  */
 [hidden] {
   display: none; }
+
+@font-face {
+  font-family: 'futura-light';
+  src: url("assets/fonts/futura-light.woff") format("woff"), url("assets/fonts/futura-light.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'futura-medium';
+  src: url("assets/fonts/futura-medium.woff") format("woff"), url("assets/fonts/futura-medium.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'futura-heavy';
+  src: url("assets/fonts/futura-heavy.woff") format("woff"), url("assets/fonts/futura-heavy.ttf") format("truetype"); }
+
+body {
+  font-size: 16px; }
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700; }
+
+h2, h3, h4, h5, h6 {
+  font-family: "futura-medium", sans-serif; }
+
+p {
+  font-family: "futura-medium", sans-serif; }
+
+.wrapper {
+  max-width: 980px; }
