@@ -1,0 +1,14 @@
+// Global Styles
+@import 'globals/normalize';
+@import 'globals/breakpoints';
+@import 'globals/colors';
+@import 'globals/typography';
+@import 'globals/layout';
+@import 'globals/navigation';
+@import 'globals/elements';
+
+// Partials
+@import 'partials/home';
+@import 'partials/footer';
+@import 'partials/catalogue';
+@import 'partials/book';

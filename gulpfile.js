@@ -3,22 +3,20 @@ const babel = require('babelify');
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
-const browserSync = require('browser-sync');
-const reload = browserSync.reload;
 const notify = require('gulp-notify');
 const sass = require('gulp-sass');
 const plumber = require('gulp-plumber');
 const concat = require('gulp-concat');
 
 gulp.task('styles', () => {
-    return gulp.src('./dev/styles/**/*.scss')
+    return gulp.src('./client/styles/style.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('style.css'))
-        .pipe(gulp.dest('./public/styles'))
+        .pipe(gulp.dest('./public'));
 });
 
 gulp.task('js', () => {
-    browserify('dev/scripts/app.js', {debug: true})
+    return browserify('client/scripts/index.js', {debug: true})
         .transform('babelify', {
             sourceMaps: true,
             presets: ['es2015','react']
@@ -28,22 +26,13 @@ gulp.task('js', () => {
             message: "Error: <%= error.message %>",
             title: 'Error in JS 💀'
         }))
-        .pipe(source('app.js'))
+        .pipe(source('index.js'))
         .pipe(buffer())
-        .pipe(gulp.dest('public/scripts'))
-        .pipe(reload({stream:true}));
+        .pipe(concat('bundle.js'))
+        .pipe(gulp.dest('public/'))
 });
 
-gulp.task('bs', () => {
-    browserSync.init({
-        server: {
-            baseDir: './'
-        }
-    });
-});
-
-gulp.task('default', ['js','bs', 'styles'], () => {
-    gulp.watch('dev/**/*.js',['js']);
-    gulp.watch('dev/**/*.scss',['styles']);
-    gulp.watch('./public/styles/style.css',reload);
+gulp.task('default', ['js','styles'], () => {
+	gulp.watch('client/**/*.js',['js']);
+	gulp.watch('client/**/*.scss',['styles']);
 });

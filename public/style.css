@@ -403,7 +403,8 @@ template {
   src: url("assets/fonts/futura-heavy.woff") format("woff"), url("assets/fonts/futura-heavy.ttf") format("truetype"); }
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+  color: #282C2F; }
 
 h1 {
   font-family: "Playfair Display", serif;
@@ -415,5 +416,134 @@ h2, h3, h4, h5, h6 {
 p {
   font-family: "futura-medium", sans-serif; }
 
+a {
+  color: #282C2F;
+  transition: .3s ease color; }
+  a:hover {
+    color: #F2B641; }
+
 .wrapper {
-  max-width: 980px; }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.875rem; }
+
+.main-nav {
+  display: flex;
+  justify-content: flex-end; }
+  .main-nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row; }
+  .main-nav a {
+    font-family: "futura-medium", sans-serif;
+    text-decoration: none;
+    padding: 0 1.125rem; }
+    .main-nav a:hover {
+      text-decoration: underline; }
+
+button {
+  padding: 1rem 1.875rem;
+  border-radius: 3px;
+  font-family: "futura-medium", sans-serif;
+  background-color: #F2B641;
+  filter: alpha(opacity=30);
+  color: #282C2F;
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  button:active {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
+  button:focus {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36); }
+
+label {
+  font-family: "futura-medium", sans-serif;
+  display: block; }
+
+input {
+  padding: 1rem 1.875rem;
+  margin: 1rem 0;
+  border: 1px solid #464A55;
+  border-radius: 3px; }
+
+.addBooks-form__button {
+  display: block;
+  margin: 1rem 0; }
+
+.home {
+  display: flex;
+  flex-direction: row;
+  width: 75%;
+  margin: 0 auto;
+  padding: 3.75rem 0; }
+
+.home__img {
+  height: 21.5rem; }
+
+.home__header-wrapper {
+  margin-left: 1.875rem; }
+
+.home__header {
+  font-size: 4.5rem;
+  margin-bottom: 0; }
+
+.home__subtitle {
+  font-size: 1.5rem; }
+
+.home__button-wrapper {
+  display: flex;
+  flex-direction: row; }
+
+.home__catalogue-button {
+  margin-right: 1.875rem; }
+
+.footer-wrapper {
+  border-top: 2px solid #eee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .social a {
+    background-color: #282C2F;
+    border-radius: 50%;
+    height: 1.875rem;
+    width: 1.875rem;
+    margin: 0 .5rem;
+    transition: .3s ease background-color; }
+    .social a:hover {
+      text-decoration: none;
+      background-color: #fff; }
+      .social a:hover .social-icon {
+        color: #F2B641; }
+
+.social-icon {
+  font-size: 1.25rem;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.catalogue-header {
+  padding: 1.875rem 0; }
+  .catalogue-header h1 {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem; }
+  .catalogue-header h2 {
+    font-size: 1.5rem; }
+
+.book {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.book__image {
+  max-width: 30%; }
+
+.book__info {
+  max-width: 70%; }

@@ -1,28 +1,32 @@
 {
-  "name": "fullstack_project",
+  "name": "lamp-light",
   "version": "1.0.0",
-  "description": "Fullstack final project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-core": "^6.26.0",
+  "description": "A library catalogue for avid readers",
+  "main": "gulpfile.js",
+  "dependencies": {
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babelify": "^8.0.0",
+    "babelify": "^7.3.0",
     "browser-sync": "^2.18.13",
-    "browserify": "^14.5.0",
+    "browserify": "^14.4.0",
+    "express": "^4.15.4",
+    "filestack-react": "^1.3.8",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-notify": "^3.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "devDependencies": {
+    "mongoose": "^4.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jen Taylor",
+  "license": "ISC"
 }

@@ -36,6 +36,7 @@ $sans-serif-heavy: 'futura-heavy', sans-serif;
 
 body {
   font-size: 16px;
+  color: $black;
 }
 
 h1 {
@@ -49,4 +50,13 @@ h2, h3, h4, h5, h6 {
 
 p {
   font-family: $sans-serif-med;
+}
+
+a {
+  color: $black;
+  transition: .3s ease color;
+
+  &:hover {
+    color: $primary;
+  }
 }
