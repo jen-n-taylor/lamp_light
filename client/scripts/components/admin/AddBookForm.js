@@ -1,4 +1,5 @@
 import React from 'react';
+import GenreInput from './GenreInput';
 import ReactFilestack from 'filestack-react';
 
 class AddBookForm extends React.Component {
@@ -11,11 +12,12 @@ class AddBookForm extends React.Component {
       publisher: '',
       published: '',
       language: '',
-      genre: '',
+      genres: [],
       about: '',
       cover: '',
     }
     this.handleChange = this.handleChange.bind(this);
+    this.addGenres = this.addGenres.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onUploadSuccess = this.onUploadSuccess.bind(this);
   }
@@ -23,6 +25,11 @@ class AddBookForm extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+  }
+  addGenres(genre) {
+    this.setState({
+      genres: this.state.genres.concat(genre),
+    })
   }
   onUploadSuccess(success) {
     const url = success.filesUploaded[0].url;
@@ -65,9 +72,7 @@ class AddBookForm extends React.Component {
         <label htmlFor="language">Language</label>
         <input id="language" type="text" placeholder="" />
 
-        <label htmlFor="genre">Genre</label>
-        <input id="genre" type="text" placeholder="" />
-        <div className="genre-list"> </div>
+        <GenreInput addGenres={this.addGenres} />
 
         <ReactFilestack
           apikey={"AedMFH3FtTWOpmG9xu1nlz"}

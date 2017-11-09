@@ -7,7 +7,7 @@ const BookSchema = new mongoose.Schema({
   publisher: String,
   published: Number,
   language: String,
-  genres: [String],
+  genres: [],
   about: String,
   cover: String
 });
