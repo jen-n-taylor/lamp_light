@@ -19,7 +19,6 @@ class App extends React.Component {
         <Home />
         <AddBooks />
         <Library fetchBooks={this.fetchBooks} books={this.state.books} />
-        // I think i need to get this state all the way down to book.js?
       </div>
     )
   };

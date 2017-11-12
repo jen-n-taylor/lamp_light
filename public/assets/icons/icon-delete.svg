@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 58 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-cancel" transform="translate(-19.000000, 1.000000)" fill-rule="nonzero" fill="#000000">
+            <path d="M48,57.94 C32.0168793,57.94 19.06,44.9831207 19.06,29 C19.06,13.0168793 32.0168793,0.06 48,0.06 C63.9831207,0.06 76.94,13.0168793 76.94,29 C76.9069938,44.9694291 63.9694291,57.9069938 48,57.94 Z M48,4.36 C34.3917038,4.36 23.36,15.3917038 23.36,29 C23.36,42.6082962 34.3917038,53.64 48,53.64 C61.6082962,53.64 72.64,42.6082962 72.64,29 C72.62347,15.3985566 61.6014434,4.37653003 48,4.36 Z" id="Shape"></path>
+            <rect id="Rectangle-path" transform="translate(47.998715, 28.996464) rotate(-45.000000) translate(-47.998715, -28.996464) " x="34.6487155" y="26.8514645" width="26.7" height="4.29"></rect>
+            <rect id="Rectangle-path" transform="translate(47.998714, 29.005383) rotate(-44.990000) translate(-47.998714, -29.005383) " x="45.8537138" y="15.6553826" width="4.29" height="26.7"></rect>
+        </g>
+    </g>
+</svg>

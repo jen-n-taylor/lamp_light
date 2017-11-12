@@ -61,12 +61,12 @@ class AddBookForm extends React.Component {
         <input id="author" type="text" placeholder="" />
 
         <label htmlFor="about">About</label>
-        <input id="about" type="text" placeholder="" />
+        <textarea id="about" type="text" placeholder="" rows="5" cols="30"/>
 
         <label htmlFor="publisher">Publisher</label>
         <input id="publisher" type="text" placeholder="" />
 
-        <label htmlFor="published">Published</label>
+        <label htmlFor="published">Year Published</label>
         <input id="published" type="text" placeholder="" />
 
         <label htmlFor="language">Language</label>
