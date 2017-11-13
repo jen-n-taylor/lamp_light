@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const Book = require('./model.js');
+const books = require('./controller');
+const bodyParser = require('body-parser');
 
 mongoose.connect('mongodb://localhost/library');
+app.use(bodyParser.json())
 
 // This serves all files placed in the /public
 // directory (where gulp will build all React code)
@@ -14,21 +16,9 @@ app.use(express.static('public'));
 // assets that you want to manually include)
 app.use(express.static('assets'));
 
-// Include your own logic here (so it has precedence over the wildcard
-// route below)
-app.get('/api/books', (req, res) => {
-  Book.find((err, docs) => {
-    if (err) {
-      res.status(400).send(err)
-    } else {
-      res.status(200).send(docs)
-    }
-  });
-});
-
-app.post('/api/books'), (req, res) => {
-  // THIS IS WHERE YOU LEFT OFF!
-}
+app.get('/api/books', books.getBooks);
+app.post('/api/books', books.postBook);
+app.delete('/api/books/:id', books.deleteBook);
 
 
 // This route serves your index.html file (which

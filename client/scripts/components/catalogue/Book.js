@@ -1,19 +1,27 @@
 import React from 'react';
 
-const Book = (props) => {
-  return(
-    <div className="wrapper book">
-      <div className="book__image">
-        <img src="{props.cover}" alt="" />
+class Book extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+  render() {
+    return(
+      <div className="wrapper book">
+        <div className="book__image">
+          <img src="{props.cover}" alt="" />
+        </div>
+        <div className="book__info">
+          <p className="title">{this.props.title}</p>
+          <p className="author">{this.props.author}</p>
+          <p className="publisher">{this.props.publisher}, {this.props.published}</p>
+          <p className="about">{this.props.about}</p>
+        </div>
+        <button type="submit" className="book__delete-button" onClick={() => this.props.deleteBook(this.props._id)}>Remove</button>
       </div>
-      <div className="book__info">
-        <p className="title">{props.title}</p>
-        <p className="author">{props.author}</p>
-        <p className="publisher">{props.publisher}, {props.published}</p>
-        <p className="about">{props.about}</p>
-      </div>
-    </div>
-  )
+    )}
 }
 
 export default Book;

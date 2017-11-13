@@ -4,7 +4,7 @@ import AddBookForm from './AddBookForm';
 class AddBooks extends React.Component {
   render() {
     return (
-      <AddBookForm />
+      <AddBookForm fetchBooks={this.props.fetchBooks} />
     );
   }
 }

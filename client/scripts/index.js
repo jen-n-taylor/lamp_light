@@ -12,13 +12,14 @@ class App extends React.Component {
       books: [],
     }
     this.fetchBooks = this.fetchBooks.bind(this);
+    this.deleteBook = this.deleteBook.bind(this);
   }
   render() {
     return (
       <div>
         <Home />
-        <AddBooks />
-        <Library fetchBooks={this.fetchBooks} books={this.state.books} />
+        <AddBooks fetchBooks={this.fetchBooks} />
+        <Library fetchBooks={this.fetchBooks} books={this.state.books} deleteBook={this.deleteBook} />
       </div>
     )
   };
@@ -29,6 +30,12 @@ class App extends React.Component {
     fetch('/api/books')
       .then(resp => resp.json())
       .then(json => this.setState({ books: json }));
+  }
+  deleteBook(id) {
+    fetch(`/api/books/${id}`, {
+      method: 'DELETE',
+    })
+    .then(() => this.fetchBooks());
   }
 }
 

@@ -11,7 +11,7 @@ class Library extends React.Component {
       <div>
         <MainNav />
         <CatalogueHeader />
-        <Catalogue fetchBooks={this.props.fetchBooks} books={this.props.books} />
+        <Catalogue fetchBooks={this.props.fetchBooks} books={this.props.books} deleteBook={this.props.deleteBook}/>
         <Footer />
       </div>
     )
