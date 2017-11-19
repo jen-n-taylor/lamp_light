@@ -1,5 +1,5 @@
 import React from 'react';
-import AddBookForm from './AddBookForm';
+import AddBookForm from '../components/AddBookForm';
 
 class AddBooks extends React.Component {
   render() {

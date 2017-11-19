@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Home from './components/Home';
-import Library from './components/Library';
-import AddBooks from './components/admin/AddBooks';
+import Home from './containers/Home';
+import Library from './containers/Library';
+import AddBooks from './containers/AddBooks';
 
 class App extends React.Component {
   constructor() {

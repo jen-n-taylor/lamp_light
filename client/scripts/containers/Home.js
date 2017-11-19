@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from './Footer.js';
-import MainNav from './MainNav.js';
+import Footer from '../components/globals/Footer.js';
+import MainNav from '../components/globals/MainNav.js';
 
 class Home extends React.Component {
   render() {
