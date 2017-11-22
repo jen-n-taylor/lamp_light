@@ -2,7 +2,7 @@ import React from 'react';
 
 const MainNav = () => {
   return(
-    <div className="wrapper">
+    <div className="">
       <nav className="main-nav">
         <ul>
           <li><a href="">Home</a></li>

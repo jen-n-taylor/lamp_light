@@ -1,33 +1,74 @@
 .home {
   display: flex;
-  flex-direction: row;
-  width: 75%;
   margin: 0 auto;
   padding: (1.875rem * 2) 0;
+
+  @include tablet-only {
+    width: 100%;
+  }
+
+  @include desktop {
+    width: 75%;
+  }
+}
+
+.home-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .home__img {
-  height: 21.5rem;
+  display: none;
+
+  @include tablet-up {
+    display: block;
+    height: 21.5rem;
+  }
 }
 
 .home__header-wrapper {
-  margin-left: 1.875rem;
+  text-align: center;
+
+  @include tablet-up {
+    text-align: left;
+    margin-left: 1.875rem;
+  }
 }
 
 .home__header {
-  font-size: 4.5rem;
-  margin-bottom: 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+
+  @include tablet-up {
+    font-size: 4.5rem;
+    margin-bottom: 0;
+  }
 }
 
 .home__subtitle {
   font-size: 1.5rem;
+  @include tablet-up {
+    font-size: 1.5rem;
+  }
 }
 
 .home__button-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+
+  @include tablet-up {
+    flex-direction: row;
+  }
 }
 
 .home__catalogue-button {
-  margin-right: 1.875rem;
+  margin-bottom: 1.5rem;
+  
+  @include tablet-up {
+    margin-bottom: 0;
+    margin-right: 1.875rem;
+  }
+
 }

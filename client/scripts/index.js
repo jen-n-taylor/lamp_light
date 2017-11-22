@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Home from './containers/Home';
+import Login from './containers/Login';
+import About from './containers/About';
 import Library from './containers/Library';
-import AddBooks from './containers/AddBooks';
+import Admin from './containers/Admin';
 
 class App extends React.Component {
   constructor() {
@@ -16,11 +19,38 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Home />
-        <AddBooks fetchBooks={this.fetchBooks} />
-        <Library fetchBooks={this.fetchBooks} books={this.state.books} deleteBook={this.deleteBook} />
-      </div>
+      <Router>
+        <div>
+          <Route
+            exact
+            path="/"
+            component={Home}
+          />
+
+          <Route
+            exact
+            path="/login"
+            component={Login}
+          />
+
+          <Route
+            exact
+            path="/about"
+            render={() => <About /> }
+          />
+
+          <Route
+            path="/library"
+            render={() => <Library fetchBooks={this.fetchBooks}  books={this.state.books} deleteBook={this.deleteBook} /> }
+          />
+
+          <Route
+            path="/admin"
+            render={() => <Admin fetchBooks={this.fetchBooks} /> }
+          />
+
+        </div>
+      </Router>
     )
   };
   componentDidMount() {
