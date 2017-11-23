@@ -7,7 +7,8 @@ class AddBookForm extends React.Component {
     super();
     this.state = {
       title: '',
-      author: '',
+      authorFirst: '',
+      authorLast: '',
       checkedOut: '',
       publisher: '',
       published: '',
@@ -15,13 +16,15 @@ class AddBookForm extends React.Component {
       genres: [],
       about: '',
       cover: '',
+      coverUploadMessage: 'visuallyhidden',
+      errors: {},
     }
-    this.handleChange = this.handleChange.bind(this);
     this.addGenres = this.addGenres.bind(this);
     this.removeGenres = this.removeGenres.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.onUploadSuccess = this.onUploadSuccess.bind(this);
-
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
   handleChange(e) {
     this.setState({
@@ -41,8 +44,10 @@ class AddBookForm extends React.Component {
   }
   onUploadSuccess(success) {
     const url = success.filesUploaded[0].url;
+
     this.setState({
       cover: url,
+      coverUploadMessage: "",
     });
   }
   handleSubmit(e) {
@@ -55,43 +60,113 @@ class AddBookForm extends React.Component {
         'Content-Type': 'application/json',
       }
     })
-    .then(() => this.props.fetchBooks());
+    .then((res) => {
+      if (res.ok) {
+        this.props.fetchBooks();
+      } else {
+        res.json().then(json => this.setState({
+          errors: json.errors
+        }))
+      }
+    });
+    this.refs.form.reset()
+    this.setState({
+      coverUploadMessage: 'visuallyhidden',
+    })
   }
   render() {
     return (
-      <form className="wrapper" onSubmit={this.handleSubmit}>
+      <form ref="form" className="wrapper" onSubmit={this.handleSubmit}>
         <h2>Add a book to your library</h2>
 
-        <label htmlFor="title">Title</label>
-        <input id="title" type="text" placeholder="" onChange={this.handleChange} name="title" />
+        <fieldset>
+          <label htmlFor="title">Title</label>
+          <input id="title" type="text" placeholder="" onChange={this.handleChange} name="title" />
+          {
+            this.state.errors.title && 
+            <p>Please provide a title.</p>
+          }
+        </fieldset>
 
-        <label htmlFor="author">Author</label>
-        <input id="author" type="text" placeholder="" onChange={this.handleChange} name="author"/>
+        <fieldset>
+          <label htmlFor="authorFirst">Author's first name</label>
+          <input id="authorFirst" type="text" placeholder="" onChange={this.handleChange} name="authorFirst" />
+          {
+            this.state.errors.authorFirst && 
+            <p>Please provide the author's first name or initial.</p>
+          }
+        </fieldset>
 
-        <label htmlFor="about">About</label>
-        <textarea id="about" type="text" placeholder="" rows="5" cols="30" onChange={this.handleChange} name="about"/>
+        <fieldset>
+          <label htmlFor="authorLast">Author's last name</label>
+          <input  id="authorLast" type="text" placeholder="" onChange={this.handleChange} name="authorLast" />
+          {
+            this.state.errors.authorLast && 
+            <p>Please provide the author's last name or initial.</p>
+          }
+        </fieldset>
+        
+        <fieldset>
+          <label htmlFor="about">About</label>
+          <textarea id="about" type="text" placeholder="" rows="5" cols="30" onChange={this.handleChange} name="about"/>
+          {
+            this.state.errors.about && 
+            <p>Please provide a synopsis.</p>
+          }
+        </fieldset>
 
-        <label htmlFor="publisher">Publisher</label>
-        <input id="publisher" type="text" placeholder="" onChange={this.handleChange} name="publisher"/>
+        <fieldset>
+          <label htmlFor="publisher">Publisher</label>
+          <input id="publisher" type="text" placeholder="" onChange={this.handleChange} name="publisher"/>
+          {
+            this.state.errors.publisher && 
+            <p>Please provide a publisher.</p>
+          }
+        </fieldset>
 
-        <label htmlFor="published">Year Published</label>
-        <input id="published" type="text" placeholder="" onChange={this.handleChange} name="published" />
+        <fieldset>
+          <label htmlFor="published">Year Published</label>
+          <input id="published" type="text" placeholder="" onChange={this.handleChange} name="published" />
+          {
+            this.state.errors.published && 
+            <p>Please provide the year the book was published.</p>
+          }
+        </fieldset>
 
-        <label htmlFor="language">Language</label>
-        <input id="language" type="text" placeholder="" onChange={this.handleChange} name="language"/>
+        <fieldset>
+          <label htmlFor="language">Language</label>
+          <input id="language" type="text" placeholder="" onChange={this.handleChange} name="language"/>
+          {
+            this.state.errors.language && 
+            <p>Please provide the language your edition of the book is published in.</p>
+          }
+        </fieldset>
 
-        <GenreInput addGenres={this.addGenres} removeGenres={this.removeGenres} genres={this.state.genres} />
+        <fieldset>
+          <GenreInput addGenres={this.addGenres} removeGenres={this.removeGenres} genres={this.state.genres} />
+          {
+            this.state.errors.genres ? 
+            <p>Please provide at least one genre.</p> : null
+          }
+        </fieldset>
 
-        <ReactFilestack
-          apikey={"AedMFH3FtTWOpmG9xu1nlz"}
-          buttonText="Upload cover image"
-          buttonClass="addBooks-form__button"
-          onSuccess={this.onUploadSuccess}
-          onChange={this.handleChange}
-          name="cover"
-        />
+        <fieldset>
+          <ReactFilestack
+            apikey={"AedMFH3FtTWOpmG9xu1nlz"}
+            buttonText="Upload cover image"
+            buttonClass="addBooks-form__button"
+            onSuccess={this.onUploadSuccess}
+            onChange={this.handleChange}
+            name="cover"
+          />
+          {
+            this.state.errors.cover && 
+            <p>Please upload an image of the cover.</p>
+          }
+          <p id="successMessageCover" className={this.state.coverUploadMessage}>Image uploaded!</p>
+        </fieldset>
 
-      <button className="addBooks-form__button" type="submit">Add book</button>
+        <button className="addBooks-form__button" type="submit">Add book</button>
       </form>
     );
   }

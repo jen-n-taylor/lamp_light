@@ -1,0 +1,29 @@
+.about {
+  display: flex;
+  align-items: flex-end;
+  margin: 0 auto;
+
+  @include tablet-up {
+      max-width: 965px;
+  }
+}
+
+.about__wrapper {
+  p {
+    max-width: 530px;
+  }
+
+}
+
+.about__header {
+  font-size: 4.5rem;
+}
+
+.about__img {
+  display: none;
+  
+  @include desktop {
+    display: block;
+    width: 290px;
+  }
+}

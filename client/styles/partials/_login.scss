@@ -1,0 +1,59 @@
+.login {
+    display: flex;
+    margin: 0 auto;
+    padding: (1.875rem * 2) 0;
+
+    @include tablet-up {
+        max-width: 550px;
+    }
+}
+
+.login__img {
+    display: none;
+    
+    @include tablet-up {
+        display: block;
+        height: 100%;
+    }
+}
+
+.login__wrapper {
+    padding-left: 2.80rem;
+    width: 100%;
+}
+
+.login__header {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  
+    @include tablet-up {
+      font-size: 4.5rem;
+      margin: 1.875rem 0;
+    }
+  }
+
+.login__form {
+    form {
+        width: 100%;
+    }
+    fieldset {
+        border: none;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    label {
+        font-size: 1.5rem;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    button {
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+}

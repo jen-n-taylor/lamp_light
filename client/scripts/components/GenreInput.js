@@ -24,8 +24,11 @@ class GenreInput extends React.Component {
     return (
       <div>
         <label htmlFor="genre">Genre</label>
+        
         <input id="genre" type="text" placeholder="" value={this.state.genre} name="genre" onChange={this.handleChange}/>
+        
         <button className="addBooks-form__button--genre" type="button" onClick={this.onAddGenres}>Add genre</button>
+        
         <div className="genre-list__wrapper">
           <ul className="genre-list__list">
             {this.props.genres.map((item, i) =>

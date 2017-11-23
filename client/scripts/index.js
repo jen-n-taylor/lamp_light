@@ -59,7 +59,7 @@ class App extends React.Component {
   fetchBooks() {
     fetch('/api/books')
       .then(resp => resp.json())
-      .then(json => this.setState({ books: json }));
+      .then(json => this.setState({ books: json }))
   }
   deleteBook(id) {
     fetch(`/api/books/${id}`, {

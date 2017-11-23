@@ -11,7 +11,7 @@ class Book extends React.Component {
     return(
       <div className="wrapper book">
         <div className="book__image">
-          <img src="{props.cover}" alt="" />
+          <img className="cover" src={this.props.cover} alt="" />
         </div>
         <div className="book__info">
           <p className="title">{this.props.title}</p>
