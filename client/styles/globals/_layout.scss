@@ -1,10 +1,18 @@
+.wrapper-large {
+  max-width: 1425px;
+  margin: 0 auto;
+  padding: 0 1.875rem;
+}
+
 .wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.875rem;
 }
 
-.full-height-wrapper {
-  height: 100vh;
+.full-page-wrapper {
   position: relative;
+  height: 100vh;
 }
+
+$dashboard-width: 285px;

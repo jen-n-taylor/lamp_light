@@ -9,7 +9,7 @@ class Book extends React.Component {
   }
   render() {
     return(
-      <div className="wrapper book">
+      <div className="book-wrapper">
         <div className="book__image">
           <img className="cover" src={this.props.cover} alt="" />
         </div>

@@ -1,10 +1,16 @@
 .login {
     display: flex;
     margin: 0 auto;
-    padding: (1.875rem * 2) 0;
+    padding: 3.75rem 0;
 
     @include tablet-up {
-        max-width: 550px;
+        padding: 5.625rem 0;
+        width: 75%;
+      }
+    
+
+    @include desktop {
+        width: 50%;
     }
 }
 
@@ -18,8 +24,11 @@
 }
 
 .login__wrapper {
-    padding-left: 2.80rem;
     width: 100%;
+
+    @include tablet-up {
+        padding-left: 2.80rem;
+    }
 }
 
 .login__header {

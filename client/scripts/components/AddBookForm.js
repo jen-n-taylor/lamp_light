@@ -24,7 +24,6 @@ class AddBookForm extends React.Component {
     this.onUploadSuccess = this.onUploadSuccess.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
   handleChange(e) {
     this.setState({
@@ -76,9 +75,7 @@ class AddBookForm extends React.Component {
   }
   render() {
     return (
-      <form ref="form" className="wrapper" onSubmit={this.handleSubmit}>
-        <h2>Add a book to your library</h2>
-
+      <form ref="form" className="add-books-form" onSubmit={this.handleSubmit}>
         <fieldset>
           <label htmlFor="title">Title</label>
           <input id="title" type="text" placeholder="" onChange={this.handleChange} name="title" />

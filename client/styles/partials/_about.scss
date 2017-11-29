@@ -2,28 +2,45 @@
   display: flex;
   align-items: flex-end;
   margin: 0 auto;
+  width: 100%;
 
-  @include tablet-up {
-      max-width: 965px;
+  @include tablet-only {
+    width: 90%;
+  }
+
+  @include desktop {
+      width: 75%;
   }
 }
 
 .about__wrapper {
-  p {
-    max-width: 530px;
-  }
+  width: 100%;
 
+  include tablet-up {
+    p {
+      max-width: 530px;
+    }
+  }
 }
 
 .about__header {
-  font-size: 4.5rem;
+  font-size: 2.5rem;
+
+  @include tablet-up {
+    font-size: 4.5rem;    
+  }
 }
 
 .about__img {
   display: none;
   
-  @include desktop {
+  @include tablet-up {
     display: block;
-    width: 290px;
+    width: 14rem;
+    padding-left: 1.875rem;
+  }
+
+  @include desktop {
+    width: 16rem;
   }
 }

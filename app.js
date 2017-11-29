@@ -17,9 +17,9 @@ app.use(express.static('public'));
 app.use(express.static('assets'));
 
 app.get('/api/books', books.getBooks);
+app.get('/api/books/count', books.countBooks);
 app.post('/api/books', books.postBook);
 app.delete('/api/books/:id', books.deleteBook);
-
 
 // This route serves your index.html file (which
 // initializes React)

@@ -7,7 +7,6 @@ const BookSchema = new mongoose.Schema({
   },
   authorFirst: {
     type: String,
-    required: true,
   },
   authorLast: {
     type: String,
@@ -16,6 +15,10 @@ const BookSchema = new mongoose.Schema({
   checkedOut: { 
     type: Boolean, 
     default: false,
+  },
+  update: {
+    type: Date, 
+    default: Date.now,
   },
   publisher: {
     type: String,
@@ -36,7 +39,6 @@ const BookSchema = new mongoose.Schema({
   about: {
     type: String,
     required: true,
-    maxlength: 200,
   },
   cover: {
     type: String,

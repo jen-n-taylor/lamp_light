@@ -1,10 +1,14 @@
 .home {
   display: flex;
   margin: 0 auto;
-  padding: (1.875rem * 2) 0;
+  padding: 3.75rem 0;
 
   @include tablet-only {
     width: 100%;
+  }
+
+  @include tablet-up {
+    padding: 5.625rem 0;
   }
 
   @include desktop {
@@ -12,7 +16,7 @@
   }
 }
 
-.home-wrapper {
+.home__wrapper {
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -47,7 +51,14 @@
 }
 
 .home__subtitle {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+
+  @include mobile-only {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
   @include tablet-up {
     font-size: 1.5rem;
   }
@@ -63,7 +74,34 @@
   }
 }
 
-.home__catalogue-button {
+.home__button {
+  text-decoration: none;
+  font-family: $sans-serif-med;
+  background-color: $primary;
+  border-radius: 3px;
+  padding: 1rem 1.875rem;
+  filter: alpha(opacity=30);
+  border: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+  transition: box-shadow .2s cubic-bezier(.4,0,1,1), background-color .2s cubic-bezier(.4,0,.2,1),
+  background-color .3s ease, 
+  color .3s ease;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+  }
+
+  &:active {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+
+  &:focus {
+    box-shadow: 0 0 8px rgba(0,0,0,.18), 0 8px 16px rgba(0,0,0,.36);
+  }
+}
+
+.home__button--catalogue {
   margin-bottom: 1.5rem;
   
   @include tablet-up {

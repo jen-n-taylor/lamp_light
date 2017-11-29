@@ -8,14 +8,16 @@ class Library extends React.Component {
     return (
       <div>
         <MainNav />
-        <div className="wrapper">
+        <section>
           <div className="catalogue-header">
-            <h1>38 Niagara Library</h1>
-            <h2>Curator: Jen Taylor</h2>
+            <div className="wrapper">
+              <h1>38 Niagara Library</h1>
+              <h2>Curator: Jen Taylor</h2>
+            </div>
           </div>
         
           <Catalogue fetchBooks={this.props.fetchBooks} books={this.props.books} deleteBook={this.props.deleteBook}/>
-        </div>
+        </section>
 
       
       </div>

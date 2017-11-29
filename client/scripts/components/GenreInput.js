@@ -18,9 +18,7 @@ class GenreInput extends React.Component {
     this.props.addGenres(this.state.genre);
     this.setState({genre: ''})
   }
-
   render(props) {
-
     return (
       <div>
         <label htmlFor="genre">Genre</label>

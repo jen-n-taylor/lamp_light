@@ -1,15 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MainNav = () => {
   return(
-    <div className="">
-      <nav className="main-nav">
-        <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Login</a></li>
-        </ul>
-      </nav>
+    <div className="main-nav">
+      <div className="main-nav__wrapper wrapper">
+        <p className="main-nav__heading">Lamp Light</p>
+        <nav className="main-nav__nav">
+          <ul>
+            <li><Link to={'/'}>Home</Link></li>
+            <li><Link to={'/about'}>About</Link></li>
+            <li><Link to={'/login'}>Login</Link></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   )
 }

@@ -12,6 +12,11 @@ books.getBooks = (req, res) => {
   });
 };
 
+books.countBooks = (req, res) => {
+  Book.count()
+  .then((count) => res.json(count));  
+}
+
 // POST
 books.postBook = (req, res) => {
   const bookModel = new Book();

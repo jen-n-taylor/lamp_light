@@ -5,7 +5,7 @@ class Footer extends React.Component {
   render() {
     return (
       <footer className="main-footer">
-        <div className="footer-wrapper">
+        <div className="footer-wrapper wrapper">
           <div className="copyright">
             <p>Copyright Jen Taylor, 2017</p>
           </div>
