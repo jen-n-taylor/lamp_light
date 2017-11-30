@@ -18,6 +18,7 @@ app.use(express.static('assets'));
 
 app.get('/api/books', books.getBooks);
 app.get('/api/books/count', books.countBooks);
+app.get('/api/books/:id', books.getBookById);
 app.post('/api/books', books.postBook);
 app.delete('/api/books/:id', books.deleteBook);
 

@@ -12,6 +12,15 @@ books.getBooks = (req, res) => {
   });
 };
 
+books.getBookById = (req, res) => {
+  const bookId = req.params.id;
+  Book.findOne({ 
+      _id: bookId
+  }).then((doc) => {
+      res.status(200).send(doc);
+  });
+}
+
 books.countBooks = (req, res) => {
   Book.count()
   .then((count) => res.json(count));  

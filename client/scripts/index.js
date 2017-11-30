@@ -7,6 +7,8 @@ import Login from './containers/Login';
 import About from './containers/About';
 import Library from './containers/Library';
 import Admin from './containers/Admin';
+import BookSingle from './containers/BookSingle';
+
 
 class App extends React.Component {
   constructor() {
@@ -40,8 +42,14 @@ class App extends React.Component {
           />
 
           <Route
+            exact
             path="/library"
             render={() => <Library fetchBooks={this.fetchBooks}  books={this.state.books} deleteBook={this.deleteBook} /> }
+          />
+
+          <Route 
+            path="/library/:bookId" 
+            render={(props) => <BookSingle fetchBooks={this.fetchBooks} {...props} books={this.books} /> }
           />
 
           <Route

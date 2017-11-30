@@ -713,10 +713,6 @@ input, textarea {
     .book-wrapper {
       max-width: 380px; } }
 
-.book {
-  display: flex;
-  flex-direction: row; }
-
 .admin-view {
   margin-left: 285px; }
 

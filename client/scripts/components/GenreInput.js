@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 class GenreInput extends React.Component {
   constructor() {
@@ -15,7 +16,9 @@ class GenreInput extends React.Component {
     });
   }
   onAddGenres(e) {
-    this.props.addGenres(this.state.genre);
+    let newGenre = _.startCase(this.state.genre);
+    console.log(newGenre);
+    this.props.addGenres(newGenre);
     this.setState({genre: ''})
   }
   render(props) {

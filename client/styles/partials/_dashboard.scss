@@ -1,0 +1,23 @@
+.dashboard-view {
+  padding-top: 6.25rem;
+  padding-left: 3.125rem;
+  padding-right: 3.125rem;
+  
+  h1 {
+    font-family: $sans-serif-med;
+    font-size: 3rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.dashboard__total-books {
+  text-decoration: underline;
+  padding: 0 0.625rem;
+  font-size: 1.5rem;
+  font-family: $sans-serif-heavy;
+}
+
