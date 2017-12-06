@@ -20,10 +20,7 @@ class EditBooks extends React.Component {
     return(
       <div className="admin-view dashboard-view">
         <h1>Hello, Jen</h1>
-        <p className="">You have 
-          <span className="dashboard__total-books"> {this.state.totalBooks} </span> 
-        books in your library.
-        </p>
+        
       </div>
     );
   }

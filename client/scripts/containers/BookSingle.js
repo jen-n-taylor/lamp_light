@@ -32,7 +32,7 @@ class BookSingle extends React.Component {
         <div className="book__info">
               <p className="title">{this.state.title}</p>
               <p className="author">{this.state.authorFirst} {this.state.authorLast}</p>
-              <p className="genre">{this.state.genres}</p>
+              <p className="genre">{` ${this.state.genres}`}</p>
         </div>
       </div>
     )

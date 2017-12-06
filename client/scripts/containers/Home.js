@@ -6,7 +6,7 @@ import Footer from '../components/globals/Footer.js';
 class Home extends React.Component {
   render() {
     return (
-      <div className="full-page-wrapper">
+      <div className="home-page full-page-wrapper">
         <MainNav />
         <HomeIntro />
         <Footer />

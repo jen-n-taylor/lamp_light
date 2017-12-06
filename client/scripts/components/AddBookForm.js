@@ -2,13 +2,18 @@ import React from 'react';
 import GenreInput from './GenreInput';
 import ReactFilestack from 'filestack-react';
 
+class AuthorInput extends React.Component {
+  render() {
+    return <input type="text" aria-describedby="author_input" placeholder="Author's name" onChange={this.props.updateAuthors} name={`author-${ this.props.index }`} />
+  }
+}
+
 class AddBookForm extends React.Component {
   constructor() {
     super();
     this.state = {
       title: '',
-      authorFirst: '',
-      authorLast: '',
+      authors: [],
       checkedOut: '',
       publisher: '',
       published: '',
@@ -17,8 +22,11 @@ class AddBookForm extends React.Component {
       about: '',
       cover: '',
       coverUploadMessage: 'visuallyhidden',
+      authorInputs: [],
       errors: {},
     }
+    this.addAuthorInput = this.addAuthorInput.bind(this);
+    this.updateAuthors = this.updateAuthors.bind(this);
     this.addGenres = this.addGenres.bind(this);
     this.removeGenres = this.removeGenres.bind(this);
     this.onUploadSuccess = this.onUploadSuccess.bind(this);
@@ -29,6 +37,17 @@ class AddBookForm extends React.Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+  }
+  addAuthorInput(e) {
+    const authorInputs = this.state.authorInputs.concat(AuthorInput);
+    this.setState({
+      authorInputs
+    });
+  }
+  updateAuthors(author) {
+    this.setState({
+      authors: this.state.authors.concat(author),
+    })
   }
   addGenres(genre) {
     this.setState({
@@ -43,7 +62,6 @@ class AddBookForm extends React.Component {
   }
   onUploadSuccess(success) {
     const url = success.filesUploaded[0].url;
-
     this.setState({
       cover: url,
       coverUploadMessage: "",
@@ -74,6 +92,10 @@ class AddBookForm extends React.Component {
     })
   }
   render() {
+    const authorInputs = this.state.authorInputs.map((Element, index) => {
+      var index = index + 1; 
+      return <Element key={ index } index={ index } updateAuthors={this.updateAuthors} />
+    } )
     return (
       <form ref="form" className="add-books-form" onSubmit={this.handleSubmit}>
         <fieldset>
@@ -86,21 +108,14 @@ class AddBookForm extends React.Component {
         </fieldset>
 
         <fieldset>
-          <label htmlFor="authorFirst">Author's first name</label>
-          <input id="authorFirst" type="text" placeholder="" onChange={this.handleChange} name="authorFirst" />
+          <label htmlFor="author" id="author_input">Author</label>
+         <AuthorInput index={0} onChange={this.updateAuthors} />
           {
-            this.state.errors.authorFirst && 
-            <p>Please provide the author's first name or initial.</p>
+            this.state.errors.author && 
+            <p>Please add the author or editor's name.</p>
           }
-        </fieldset>
-
-        <fieldset>
-          <label htmlFor="authorLast">Author's last name</label>
-          <input  id="authorLast" type="text" placeholder="" onChange={this.handleChange} name="authorLast" />
-          {
-            this.state.errors.authorLast && 
-            <p>Please provide the author's last name or initial.</p>
-          }
+          { authorInputs }
+          <button type="button" onClick={this.addAuthorInput}>Add author</button>
         </fieldset>
         
         <fieldset>

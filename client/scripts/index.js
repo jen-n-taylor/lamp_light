@@ -9,7 +9,6 @@ import Library from './containers/Library';
 import Admin from './containers/Admin';
 import BookSingle from './containers/BookSingle';
 
-
 class App extends React.Component {
   constructor() {
     super();

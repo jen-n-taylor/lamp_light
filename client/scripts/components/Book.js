@@ -5,30 +5,29 @@ class Book extends React.Component {
   constructor() {
     super();
     this.state = {
-
+      genre: ''
     }
   }
   render() {
-    return(
-      <div>
-        <Link to={`/library/${this.props._id}`} >
-          <div className="book-wrapper">
-            <div className="book__image">
-              <img className="cover" src={this.props.cover} alt="" />
-            </div>
-            <div className="book__info">
-              <p className="title">{this.props.title}</p>
-              <p className="author">{this.props.author}</p>
-              <p className="publisher">{this.props.publisher}, {this.props.published}</p>
-              <p className="about">{this.props.about}
-              </p>
-              <p className="genre">{this.props.genres}</p>
+    // const genres = this.props.genres.map(function(i, item) {
+    //   return <li><Genre key={i} genre={item} /></li>
+    // });
 
-            </div>
-            
-          </div>
-        </Link>
-      </div>
+    return(
+      <li className="book-wrapper">
+        <img className="book__image" src={this.props.cover} alt="" />
+        <div className="book__info">
+          <Link to={`/library/${this.props._id}`} >
+            <p className="title">{this.props.title}</p>
+          </Link>
+          <p className="author">{this.props.author.map}</p>
+
+          <ul className="genres">
+            {this.props.genres.map((genre, i) => 
+            <li className="genres__link" key={i}> <Link to={`/library`}>{`${genre}`}</Link></li>)}
+          </ul>
+        </div>
+      </li>
     )
   }
 }

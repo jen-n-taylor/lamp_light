@@ -1,18 +1,58 @@
 .catalogue-header {
   padding: 1.875rem 0;
-  background-color: $secondary;
+  text-align: center;
+ 
 
   h1 {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
     font-weight: 700;
-    color: $white;
     margin-bottom: 1.5rem;
+    font-family: $sans-serif-med;
   }
 
   h2 {
     font-size: 1.5rem;
-    
   }
+}
+
+.catalogue-search {
+  background-color: $background-light;
+  padding: 3.75rem 0;
+  margin: 0 auto;
+  display: flex;
+
+  fieldset {
+    border: none;
+    display: inline-block;
+    padding-left: 0;
+  }
+}
+
+.tabbed-search__list {
+  list-style-type: none;
+  padding-left: 0;
+  position: relative;
+
+  li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  a {
+    padding: .5rem 1rem;
+    text-decoration: none;
+    border: 1px solid $black;
+    transition: all .3s;
+  }
+
+  a:hover, a:focus {
+    background-color: $black;
+    color: white;
+  }
+}
+
+.search-input {
+  margin-right: 1rem;
 }
 
 .catalogue-content {
@@ -21,20 +61,57 @@
 
 .catalogue-wrapper {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .book-wrapper {
-  background-color: $secondary;
-  padding: 1rem;
-  border-radius: 3px;
-  width: 30%;
+  display: flex; 
+  flex-direction: column;
+  border: 1px solid $black;
+  width: 100%;
+  margin-top: 3rem;
 
   @include tablet-up {
-    max-width: 380px;
+    width: 50%;
   }
 
   @include desktop {
+    width: 315px;
   }
+}
+
+.book__image {
+  text-align: center;
+  height: 410px;
+  width: 315px;
+}
+
+.book__info {
+  padding: 0.5em;
+  flex: 1 0 auto;
+}
+
+ul.genres {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $secondary;
+  }
+}
+
+.genres__link {
+  background-color: $primary;
+  padding: .5rem 1rem;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
 }

@@ -5,11 +5,8 @@ const BookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  authorFirst: {
-    type: String,
-  },
-  authorLast: {
-    type: String,
+  authors: {
+    type: Array,
     required: true,
   },
   checkedOut: { 

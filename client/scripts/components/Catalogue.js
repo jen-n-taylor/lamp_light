@@ -6,14 +6,16 @@ class Catalogue extends React.Component {
   constructor() {
     super();
     this.state = {
-      filter: 'sortByGenre',
-      genre: 'Fiction',
+      filter: 'mostRecent',
+      genre: '',
+      authorLast: '',
     }
   }
 
   render() {
     const bookFilter = () => {
       let books = Array.from(this.props.books);
+      let filter = this.state.filter;
   
       switch (this.state.filter) {
         case 'mostRecent':
@@ -23,16 +25,21 @@ class Catalogue extends React.Component {
           break;
         case 'sortByGenre':
           let bookGenre = this.state.genre;
-          console.log(bookGenre);
           let thisGenre = _.filter(this.props.books, 
             function(book) {
-              console.log(book);
               return _.includes(book.genres, bookGenre);
             });
           return thisGenre;
           break;
+        case 'sortByAuthor':
+          let bookAuthor = this.state.authorLast;
+          let thisAuthor = _.filter(this.props.books, 
+            function(book){
+              return _.includes(book.authorLast, bookAuthor)
+            });
+          return thisAuthor;
         default:
-          return books;
+            return mostRecent;
       }
     }
 
@@ -40,9 +47,9 @@ class Catalogue extends React.Component {
 
     return (
       <div className="catalogue-content">
-        <div className="wrapper catalogue-wrapper">
+        <ul className="wrapper catalogue-wrapper">
           { filteredBooks.map(book => <Book fetchBooks={this.props.fetchBooks} deleteBook={this.props.deleteBook} book={book} key={book._id} {...book} /> )}
-        </div>
+        </ul>
       </div>
     )
   }

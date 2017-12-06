@@ -20,9 +20,6 @@ class Admin extends React.Component {
                 <NavLink to={`/admin/dashboard`}>Dashboard</NavLink>
               </li>
               <li className="link-wrapper">
-                <NavLink to={`/library`} activeClassName="active">My Library</NavLink>
-              </li>
-              <li className="link-wrapper">
                 <NavLink to={`/admin/add-books`} activeClassName="active">Add Book</NavLink>
               </li>
               <li className="link-wrapper">
@@ -32,7 +29,7 @@ class Admin extends React.Component {
                 <NavLink to={`/admin/requests`} activeClassName="active">Requests</NavLink>
               </li>
               <li className="link-wrapper">
-                <NavLink to={`/admin/logout`} activeClassName="active">Logout</NavLink>
+                <NavLink to={`/library`} activeClassName="active">My Library</NavLink>
               </li>
             </ul>
           </nav>
