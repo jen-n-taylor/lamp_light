@@ -1,11 +1,14 @@
 .add-books-form {
   padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
   border-top: 1px solid $grey;
-  column-count: 2;
 
   fieldset {
     border: none;
     padding: 0;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 50%;
   }
 
   label {
@@ -13,12 +16,13 @@
   }
 
   input, textarea {
-    margin-top: .5rem;
     width: 75%;
+    margin-top: 0.5rem;
   }
 
   button {
     margin-left: 0;
+    margin-bottom: 1rem;
   }
 }
 

@@ -4,13 +4,15 @@ import Dashboard from './Dashboard';
 import AddBooks from './AddBooks';
 import EditBooks from './EditBooks';
 import RequestedBooks from './RequestedBooks';
+import Footer from '../components/globals/Footer.js';
 
 
 class Admin extends React.Component {
   render() {
     return (
+    <div>
       <div className="admin-nav__wrapper">
-        <div className="admin-nav">
+        <aside className="admin-nav">
           <div className="admin-nav__logo-wrapper">    
             <img className="admin-nav__logo" src="/assets/images/lightbulb.svg" alt="" />
           </div>    
@@ -33,7 +35,8 @@ class Admin extends React.Component {
               </li>
             </ul>
           </nav>
-        </div>
+        </aside>
+        
 
         <Route
           path="/admin/dashboard"
@@ -54,9 +57,10 @@ class Admin extends React.Component {
           path="/admin/requested-books"
           render={() => <RequestedBooks fetchBooks={this.props.fetchBooks} />}
         />
-
+        
       </div>
-
+      <Footer />
+    </div>
     );
   }
 }

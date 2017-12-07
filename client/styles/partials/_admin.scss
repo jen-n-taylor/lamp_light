@@ -1,6 +1,6 @@
-.admin-view {
-  margin-left: $dashboard-width;
-  // width: 100%;
+.admin-nav__wrapper {
+  display: flex;
+  min-height: 100vh;
 }
 
 .admin-nav__logo-wrapper {
@@ -22,10 +22,6 @@
 }
 
 .admin-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
   min-width: $dashboard-width;
   background-color: $background-light;
   border-right: 1px solid $grey;
@@ -60,4 +56,8 @@
     background: $white;
     border-left: 5px solid $primary;
   }
+}
+
+.admin-view {
+  width: 100%;
 }

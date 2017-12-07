@@ -776,8 +776,9 @@ ul.genres {
   margin-right: .5rem;
   margin-bottom: .5rem; }
 
-.admin-view {
-  margin-left: 285px; }
+.admin-nav__wrapper {
+  display: flex;
+  min-height: 100vh; }
 
 .admin-nav__logo-wrapper {
   margin: 3.125rem 0;
@@ -797,10 +798,6 @@ ul.genres {
   fill: black; }
 
 .admin-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
   min-width: 285px;
   background-color: #F9F8F6;
   border-right: 1px solid #eee;
@@ -826,6 +823,9 @@ ul.genres {
     background: #fff;
     border-left: 5px solid #F2B641; }
 
+.admin-view {
+  width: 100%; }
+
 .dashboard-view {
   padding-top: 6.25rem;
   padding-left: 3.125rem;
@@ -845,18 +845,22 @@ ul.genres {
 
 .add-books-form {
   padding-top: 1.875rem;
-  border-top: 1px solid #eee;
-  column-count: 2; }
+  padding-bottom: 1.875rem;
+  border-top: 1px solid #eee; }
   .add-books-form fieldset {
     border: none;
-    padding: 0; }
+    padding: 0;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    max-width: 50%; }
   .add-books-form label {
     text-transform: uppercase; }
   .add-books-form input, .add-books-form textarea {
-    margin-top: .5rem;
-    width: 75%; }
+    width: 75%;
+    margin-top: 0.5rem; }
   .add-books-form button {
-    margin-left: 0; }
+    margin-left: 0;
+    margin-bottom: 1rem; }
 
 .addBooks-form__button {
   display: block;
@@ -886,10 +890,6 @@ ul.genres {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
 .main-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   text-align: center;
   background-color: #282C2F;
   color: #fff; }

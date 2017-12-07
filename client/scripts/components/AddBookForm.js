@@ -2,18 +2,18 @@ import React from 'react';
 import GenreInput from './GenreInput';
 import ReactFilestack from 'filestack-react';
 
-class AuthorInput extends React.Component {
-  render() {
-    return <input type="text" aria-describedby="author_input" placeholder="Author's name" onChange={this.props.updateAuthors} name={`author-${ this.props.index }`} />
-  }
-}
+// class AuthorInput extends React.Component {
+//   render() {
+//     return <input type="text" aria-describedby="author_input" placeholder="Author's name" onChange={this.props.updateAuthors} id={`author-${ this.props.index }`}  name="author"/>
+//   }
+// }
 
 class AddBookForm extends React.Component {
   constructor() {
     super();
     this.state = {
       title: '',
-      authors: [],
+      authors: [''],
       checkedOut: '',
       publisher: '',
       published: '',
@@ -39,14 +39,22 @@ class AddBookForm extends React.Component {
     });
   }
   addAuthorInput(e) {
-    const authorInputs = this.state.authorInputs.concat(AuthorInput);
+    const copyAuthors = this.state.authors.slice();
+    copyAuthors.push("");
     this.setState({
-      authorInputs
-    });
+      authors: copyAuthors,
+    })
+    // const authorInputs = this.state.authorInputs.concat(AuthorInput);
+    // this.setState({
+    //   authorInputs
+    // });
+
   }
-  updateAuthors(author) {
+  updateAuthors(e, indexOfAuthor) {
+    const copyAuthors = this.state.authors.slice();
+    copyAuthors.splice(indexOfAuthor, 1, e.target.value);
     this.setState({
-      authors: this.state.authors.concat(author),
+      authors: copyAuthors,
     })
   }
   addGenres(genre) {
@@ -69,7 +77,6 @@ class AddBookForm extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const book = Object.assign({}, this.state);
     fetch('/api/books', {
       method: 'POST',
       body: JSON.stringify(book),
@@ -92,10 +99,17 @@ class AddBookForm extends React.Component {
     })
   }
   render() {
-    const authorInputs = this.state.authorInputs.map((Element, index) => {
-      var index = index + 1; 
-      return <Element key={ index } index={ index } updateAuthors={this.updateAuthors} />
-    } )
+     const authorInputs = this.state.authors.map((value, index) => {
+      return <input 
+                type="text" 
+                aria-describedby="author_input" 
+                placeholder="Author's name" 
+                onChange={(e) => this.updateAuthors(e, index)} 
+                key={ index } 
+                id={`author-${ this.props.index }`}  
+                name="author"
+                value={this.state.authors[index]} />
+    })
     return (
       <form ref="form" className="add-books-form" onSubmit={this.handleSubmit}>
         <fieldset>
@@ -109,12 +123,11 @@ class AddBookForm extends React.Component {
 
         <fieldset>
           <label htmlFor="author" id="author_input">Author</label>
-         <AuthorInput index={0} onChange={this.updateAuthors} />
+          { authorInputs }
           {
             this.state.errors.author && 
             <p>Please add the author or editor's name.</p>
           }
-          { authorInputs }
           <button type="button" onClick={this.addAuthorInput}>Add author</button>
         </fieldset>
         
